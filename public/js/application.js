@@ -4,6 +4,8 @@ $(document).ready(function() {
   var ctx = canvas.getContext("2d");
   var bgReady = false;
   var bgImage = new Image();
+  var heroReady = false
+  var heroImage = new Image();
   var keysDown = {};
   var then = Date.now();
   var goblinsCaught = 0;
@@ -89,6 +91,11 @@ $(document).ready(function() {
     bgReady = true;
   };
   bgImage.src = "/images/background.png";
+
+  heroImage.onload = function () {
+    heroReady = true;
+  };
+  heroReady.src = "/image/hero.png"
 
   addEventListener("keydown", function (e) {
     keysDown[e.keyCode] = true;
