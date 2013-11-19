@@ -6,6 +6,8 @@ $(document).ready(function() {
   var bgImage = new Image();
   var heroReady = false
   var heroImage = new Image();
+  var goblinReady = false;
+  var goblinImage = new Image();
   var keysDown = {};
   var then = Date.now();
   var goblinsCaught = 0;
@@ -62,15 +64,15 @@ $(document).ready(function() {
       ctx.drawImage(heroImage, hero.x, hero.y);
     }
 
-    if (monsterReady) {
-      ctx.drawImage(monsterImage, monster.x, monster.y);
+    if (goblinReady) {
+      ctx.drawImage(goblinImage, goblin.x, goblin.y);
     }
 
     ctx.fillStyle = "rgb(250, 250, 250)";
     ctx.font = "24px Helvetica";
     ctx.textAlign = "left";
     ctx.textBaseline = "top";
-    ctx.fillText("Goblins caught: " + monstersCaught, 32, 32);
+    ctx.fillText("Goblins caught: " + goblinsCaught, 32, 32);
   };
 
   var main = function () {
@@ -96,6 +98,10 @@ $(document).ready(function() {
     heroReady = true;
   };
   heroReady.src = "/image/hero.png"
+
+  goblinImage.onload = function () {
+    goblinReady = true;
+  };
 
   addEventListener("keydown", function (e) {
     keysDown[e.keyCode] = true;
