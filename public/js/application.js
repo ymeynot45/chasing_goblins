@@ -102,6 +102,7 @@ $(document).ready(function() {
   goblinImage.onload = function () {
     goblinReady = true;
   };
+  goblinReady.src = "/image/goblin.png"
 
   addEventListener("keydown", function (e) {
     keysDown[e.keyCode] = true;
