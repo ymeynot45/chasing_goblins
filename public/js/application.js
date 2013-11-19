@@ -97,12 +97,12 @@ $(document).ready(function() {
   heroImage.onload = function () {
     heroReady = true;
   };
-  heroReady.src = "/image/hero.png"
+  heroReady.src = "/images/hero.png"
 
   goblinImage.onload = function () {
     goblinReady = true;
   };
-  goblinReady.src = "/image/goblin.png"
+  goblinReady.src = "/images/goblin.png"
 
   addEventListener("keydown", function (e) {
     keysDown[e.keyCode] = true;
