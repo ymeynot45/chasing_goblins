@@ -17,6 +17,13 @@ $(document).ready(function() {
     y: 0
   };
 
+  var reset = function () {
+    hero.x = canvas.width / 2;
+    hero.y = canvas.height / 2;
+    goblin.x = 32 + (Math.random() * (canvas.width - 64));
+    goblin.y = 32 + (Math.random() * (canvas.height - 64));
+  };
+  
   var update = function (timeModifier) {
     if (38 in keysDown) {
       hero.y -= hero.speed * timeModifier;
