@@ -23,7 +23,7 @@ $(document).ready(function() {
     goblin.x = 32 + (Math.random() * (canvas.width - 64));
     goblin.y = 32 + (Math.random() * (canvas.height - 64));
   };
-  
+
   var update = function (timeModifier) {
     if (38 in keysDown) {
       hero.y -= hero.speed * timeModifier;
@@ -48,6 +48,26 @@ $(document).ready(function() {
       ++goblinsCaught;
       reset();
     }
+  };
+
+  var render = function () {
+    if (bgReady) {
+      ctx.drawImage(bgImage, 0, 0);
+    }
+
+    if (heroReady) {
+      ctx.drawImage(heroImage, hero.x, hero.y);
+    }
+
+    if (monsterReady) {
+      ctx.drawImage(monsterImage, monster.x, monster.y);
+    }
+
+    ctx.fillStyle = "rgb(250, 250, 250)";
+    ctx.font = "24px Helvetica";
+    ctx.textAlign = "left";
+    ctx.textBaseline = "top";
+    ctx.fillText("Goblins caught: " + monstersCaught, 32, 32);
   };
 
   canvas.width = 512;
