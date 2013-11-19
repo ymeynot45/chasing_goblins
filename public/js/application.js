@@ -4,6 +4,8 @@ $(document).ready(function() {
   var ctx = canvas.getContext("2d");
   var bgReady = false;
   var bgImage = new Image();
+  var keysDown = {};
+  var goblinsCaught = 0;
   var hero = {
     speed: 256,
     X: 0,
@@ -14,7 +16,6 @@ $(document).ready(function() {
     x: 0,
     y: 0
   };
-  var goblinsCaught = 0;
 
   canvas.width = 512;
   canvas.height = 480;
@@ -23,7 +24,14 @@ $(document).ready(function() {
   bgImage.onload = function () {
     bgReady = true;
   };
-  bgImage.src = "images/background.png";
+  bgImage.src = "/images/background.png";
 
+  addEventListener("keydown", function (e) {
+    keysDown[e.keyCode] = true;
+  }, false);
+
+  addEventListener("keyup", function (e) {
+    delete keysDown[e.keyCode];
+  }, false);
 
 });
