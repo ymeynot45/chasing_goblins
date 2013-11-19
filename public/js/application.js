@@ -17,6 +17,21 @@ $(document).ready(function() {
     y: 0
   };
 
+  var update = function (timeModifier) {
+    if (38 in keysDown) {
+      hero.y -= hero.speed * timeModifier;
+    }
+    if (40 in keysDown) {
+      hero.y += hero.speed * timeModifier;
+    }
+    if (37 in keysDown) {
+      hero.x -= hero.speed * timeModifier;
+    }
+    if (39 in keysDown) {
+      hero.x += hero.speed * timeModifier;
+    }
+  };
+
   canvas.width = 512;
   canvas.height = 480;
   document.body.appendChild(canvas);
