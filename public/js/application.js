@@ -5,6 +5,7 @@ $(document).ready(function() {
   var bgReady = false;
   var bgImage = new Image();
   var keysDown = {};
+  var then = Date.now();
   var goblinsCaught = 0;
   var hero = {
     speed: 256,
@@ -70,6 +71,16 @@ $(document).ready(function() {
     ctx.fillText("Goblins caught: " + monstersCaught, 32, 32);
   };
 
+  var main = function () {
+    var now = Date.now();
+    var delta = now - then;
+
+    update(delta / 1000);
+    render();
+
+    then = now;
+  };
+
   canvas.width = 512;
   canvas.height = 480;
   document.body.appendChild(canvas);
@@ -87,4 +98,6 @@ $(document).ready(function() {
     delete keysDown[e.keyCode];
   }, false);
 
+  reset();
+  setInterval(main, 1);
 });
