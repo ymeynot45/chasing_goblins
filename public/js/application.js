@@ -30,6 +30,17 @@ $(document).ready(function() {
     if (39 in keysDown) {
       hero.x += hero.speed * timeModifier;
     }
+
+    if (
+      hero.x <= (goblin.x + 32)
+      && goblin.x <= (hero.x + 32)
+      && hero.y <= (goblin.y + 32)
+      && goblin.y <= (hero.y + 32)
+    ) 
+    {
+      ++goblinsCaught;
+      reset();
+    }
   };
 
   canvas.width = 512;
